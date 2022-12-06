@@ -1,25 +1,28 @@
 
 public class Conta {
 	protected String numero;
-	protected String cliente;
+	protected Pessoa cliente;
 	protected double saldo;
 
 	public Conta() {
+		int n =(int) (Math.random() * 10000 + 1);
+		String numConta = "c"+n;
+		this.numero = numConta;
 	}
 
-	public Conta(String numero, String cliente) {
-		this.numero = numero;
+	public Conta(Pessoa cliente) {
+		this();
 		this.cliente = cliente;
 	}
 
-	public Conta(String numero, String cliente, double saldo) {
-		this(numero, cliente);
+	public Conta(Pessoa cliente, double saldo) {
+		this(cliente);
 		this.saldo = saldo;
 	}
 
 	private String mostra() {
 		String saida = "--------------";
-		saida += "\nCliente: " + this.cliente;
+		saida += "\nCliente: " + this.cliente.getSobrenome();
 		saida += "\nNumero: " + this.numero;
 		saida = saida + "\nSaldo :" + this.saldo;
 		saida += "\n-------------";
@@ -43,22 +46,20 @@ public class Conta {
 		}
 	}
 
-	public Conta clone() {
-		Conta cloneObj = new Conta(numero, cliente);
-		cloneObj.creditar(saldo);
-		return cloneObj;
-	}
-
 	public double getSaldo() {
 		return this.saldo;
 	}
 
-	public String getCliente() {
+	public Pessoa getCliente() {
 		return this.cliente;
 	}
 
-	public void setCliente(String cliente) {
+	public void setCliente(Pessoa cliente) {
 		this.cliente = cliente;
 	}
-
+	
+	public void setCliente(String nome, String sobrenome, int idade) {
+		Pessoa cliente = new Pessoa(nome, sobrenome, idade);
+		this.cliente = cliente;
+	}
 }

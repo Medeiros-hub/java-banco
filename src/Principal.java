@@ -1,25 +1,42 @@
 
 public class Principal {
 	public static void main(String[] args) {
-		Conta c = new Conta("234-8", "Jeová");
+		PessoaFisica pf1 = new PessoaFisica(
+			new Pessoa("Pedro", "Henrique Medeiros Ramalho", 18), 
+			"000.000.000-00"
+		);
+
+		System.out.println(pf1);
+
+
+		PessoaJuridica pj1 = new PessoaJuridica(
+			new Pessoa("Cícero", "Samuel Clemente Rodrigues", 1290), 
+			"12.345.678/0001-00", 
+			"Samucas"
+		);
+
+		System.out.println(pj1);
+
+		Pessoa jeova = new Pessoa("Jeová", "Tavares", 37);
+		Conta c = new Conta(jeova);
 		c.creditar(2000.0);
 		c.debitar(100);
-		double valor = c.getSaldo() ;
-		c.setCliente("Jeová Tavares");
 		
-		
+		Pessoa samuel = new Pessoa("Samuel", "Rodrigues", 37);
 		ContaEspecial c2 =
-			new ContaEspecial("875-8", "Samuel Rodrigues", 200);
+			new ContaEspecial(samuel, 200);
 		c2.debitar(500);
 		
-		c2.creditar(2000);
+		ContaPoupanca c3 = new ContaPoupanca(
+				new Pessoa("Agamenon", "Quinderé", 25), 
+				10000);
 		
-		Object c3 = new Object();
+		c3.rendeJuros();
+				
+		System.out.println(c);
 
-		System.out.println(c.toString());
-
-		System.out.println(c2.toString());
+		System.out.println(c2);
 		
-		System.out.println(c3.toString());
+		System.out.println(c3);
 	}
 }

@@ -3,14 +3,14 @@ public class ContaEspecial extends Conta {
 
 	private double limite;
 	
-	public ContaEspecial(String numero, String cliente) {
-		super(numero, cliente);
+	public ContaEspecial( Pessoa cliente) {
+		super(cliente);
 		this.limite = 500;
 		this.numero += "S";
 	}
 	
-	public ContaEspecial(String numero, String cliente, double saldo) { 
-		this(numero, cliente);
+	public ContaEspecial(Pessoa cliente, double saldo) { 
+		this(cliente);
 		this.saldo = saldo;
 	}
 	
@@ -23,7 +23,6 @@ public class ContaEspecial extends Conta {
 	    double  num = Double.parseDouble(valor);
 		this.limite = num;
 	}
-	
 	
 	public double getLimite() {
 		return this.limite;
@@ -45,14 +44,3 @@ public class ContaEspecial extends Conta {
 				"\n-----------------\n";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
