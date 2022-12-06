@@ -7,8 +7,8 @@ public class PessoaJuridica extends Conta {
         super(client);
         setCliente(client);
 
-        this.cnpj = cnpj;
-        this.razaoSocial = razaoSocial;
+        setCnpj(cnpj);
+        setRazaoSocial(razaoSocial);
     }
 
     public String getCnpj() {
@@ -23,7 +23,7 @@ public class PessoaJuridica extends Conta {
         return this.razaoSocial;
     }
 
-    public void serRazaoSocial(String razaoSocial) {
+    public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
 
